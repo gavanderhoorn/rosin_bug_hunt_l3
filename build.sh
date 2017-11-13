@@ -9,12 +9,14 @@ fi
 if [ ! -d "$1" ];
 then
   echo "USAGE: $0 /path/to/ros/workspace /path/to/rosinstall.file"
+  echo "  $1 is not a directory."
   exit 1
 fi
 
 if [ ! -f "$2" ];
 then
   echo "USAGE: $0 /path/to/ros/workspace /path/to/rosinstall.file"
+  echo "  $2 is not a file."
   exit 1
 fi
 

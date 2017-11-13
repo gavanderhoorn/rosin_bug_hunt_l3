@@ -8,6 +8,7 @@ fi
 if [ ! -d "$1" ];
 then
   echo "USAGE: $0 /path/to/ros/workspace"
+  echo "  $1 is not a directory."
   exit 1
 fi
 
