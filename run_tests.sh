@@ -11,7 +11,7 @@ then
   exit 1
 fi
 
-ROS_WS=$1
+ROS_WS=$(readlink -f $1)
 
 docker run -it --rm \
   -u $(id -u):$(id -g) \

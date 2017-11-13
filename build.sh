@@ -18,8 +18,8 @@ then
   exit 1
 fi
 
-ROS_WS=$1
-ROSINSTALL_FILE=$2
+ROS_WS=$(readlink -f $1)
+ROSINSTALL_FILE=$(readlink -f $2)
 
 mkdir -p ${ROS_WS}/src
 
