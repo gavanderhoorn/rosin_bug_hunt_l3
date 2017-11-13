@@ -1,5 +1,7 @@
 #!/bin/bash
 
+DOCKER_IMAGE='ros:lunar-ros-core'
+
 if [ "$#" -ne 2 ];
 then
   echo "USAGE: $0 /path/to/ros/workspace /path/to/rosinstall.file"
@@ -29,15 +31,9 @@ mkdir -p ${ROS_WS}/src
 docker run -it --rm \
   -u $(id -u):$(id -g) \
   -v ${ROS_WS}:/ros_ws \
-  -v ${ROSINSTALL_FILE}:/ros_ws/pkgs.rosinstall \
-  ros:lunar-ros-core \
-    bash -c 'wstool init /ros_ws/src /ros_ws/pkgs.rosinstall'
-
-# build workspace
-docker run -it --rm \
-  -u $(id -u):$(id -g) \
-  -v ${ROS_WS}:/ros_ws \
-  ros:lunar-ros-core \
+  -v ${ROSINSTALL_FILE}:/tmp/pkgs.rosinstall \
+  ${DOCKER_IMAGE} \
     bash -c '\
+      wstool init /ros_ws/src /tmp/pkgs.rosinstall && \
       cd /ros_ws && \
       catkin_make'

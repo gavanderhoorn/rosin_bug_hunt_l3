@@ -1,4 +1,7 @@
 #!/bin/bash
+
+DOCKER_IMAGE='ros:lunar-ros-core'
+
 if [ "$#" -ne 1 ];
 then
   echo "USAGE: $0 /path/to/ros/workspace"
@@ -17,7 +20,7 @@ ROS_WS=$(readlink -f $1)
 docker run -it --rm \
   -u $(id -u):$(id -g) \
   -v ${ROS_WS}:/ros_ws \
-  ros:lunar-ros-core \
+  ${DOCKER_IMAGE} \
     bash -c '\
       cd /ros_ws && \
       source devel/setup.bash && \
