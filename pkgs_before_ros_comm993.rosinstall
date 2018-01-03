@@ -1,4 +1,0 @@
-- git:
-    local-name: ros_comm
-    uri: https://github.com/gavanderhoorn/ros_comm.git
-    version: issue993_before_with_failing_test
