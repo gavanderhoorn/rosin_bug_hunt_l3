@@ -1,3 +1,8 @@
+# moved
+
+All of this has been moved to [robust-rosin/robust](https://github.com/robust-rosin/robust) and [gavanderhoorn/rosinstall_generator_time_machine](https://github.com/gavanderhoorn/rosinstall_generator_time_machine).
+
+
 # rosin_bug_hunt_l3
 small test
 
